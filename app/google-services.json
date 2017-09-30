@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "99825013258",
+    "firebase_url": "https://confirmidentityapp-a05ef.firebaseio.com",
+    "project_id": "confirmidentityapp-a05ef",
+    "storage_bucket": "confirmidentityapp-a05ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99825013258:android:2dadb85b3bc24b1b",
+        "android_client_info": {
+          "package_name": "com.example.confirm_identity_app.confirm_identity_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99825013258-83bbccg45o6tskm32lmqpdcrdugtjc6m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUp1z48B_re7V1aSLsn2klhRbz3V49ics"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
