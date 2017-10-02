@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "277738149288",
+    "firebase_url": "https://fir-test-d5011.firebaseio.com",
+    "project_id": "fir-test-d5011",
+    "storage_bucket": "fir-test-d5011.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277738149288:android:0080291711ebc592",
+        "android_client_info": {
+          "package_name": "iris.tryfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "277738149288-fpvva0u5l7o7ahltkicn9e1otl452jv2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNgEoP1DmRTmrTH2eosIcJgEUy93dDU5U"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
