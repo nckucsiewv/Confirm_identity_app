@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         // [START write database example]
         mDatabase = database.getReference("users/F74004088/check/20171104");
-        mDatabase.setValue("1");
+        mDatabase.setValue("0");
         // [END write database example]
 
         // Read from the database
