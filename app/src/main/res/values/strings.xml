@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TryFirebase</string>
+    <string name="github_app_id">4f834f7543314b400c2a</string>
+    <string name="github_app_secret">befe9f1cf26046eaa48e8ccca1575b1e2825f552</string>
+    <string name="github_app_callbackURL">https://fir-test-d5011.firebaseapp.com/__/auth/handler</string>
+
 </resources>
