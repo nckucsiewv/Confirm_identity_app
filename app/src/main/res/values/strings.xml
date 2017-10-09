@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">DisplayData</string>
+    <string-array name="department">
+        <item>AA 航太系</item>
+        <item>ACC 會計系</item>
+        <item>ARCH 建築系</item>
+        <item>CE 土木系</item>
+        <item>CHE 化工系</item>
+        <item>CSIE 資訊系</item>
+        <item>ECON 經濟系</item>
+        <item>EE 電機系</item>
+        <item>HIS 歷史系</item>
+        <item>HOE 水利系</item>
+        <item>ID 工設系</item>
+        <item>IIM 工資管系</item>
+        <item>LAW 法律系</item>
+        <item>MED 醫學系</item>
+        <item>MSE 材料系</item>
+        <item>PHAR 藥學系</item>
+    </string-array>
+    <string-array name="date">
+        <item>04</item>
+        <item>05</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+</resources>
