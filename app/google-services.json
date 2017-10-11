@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "736550749681",
+    "firebase_url": "https://confirmidentityapp-4074e.firebaseio.com",
+    "project_id": "confirmidentityapp-4074e",
+    "storage_bucket": "confirmidentityapp-4074e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736550749681:android:6a1c3f0e2bb54c5b",
+        "android_client_info": {
+          "package_name": "com.example.firebase2.firebase2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736550749681-i1gcm669butbe396ireungfrh9sdamcu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebase2.firebase2",
+            "certificate_hash": "2098b819be840caa9619ee2f1032471b1d896820"
+          }
+        },
+        {
+          "client_id": "736550749681-83niuv9tas0je2efvd4m4ea7ul73j37t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-zwTxeUTH7S45SGKlZGvrkhDKTWwA5H8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736550749681-83niuv9tas0je2efvd4m4ea7ul73j37t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
