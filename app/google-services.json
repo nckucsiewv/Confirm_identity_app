@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "736550749681",
-    "firebase_url": "https://confirmidentityapp-4074e.firebaseio.com",
-    "project_id": "confirmidentityapp-4074e",
-    "storage_bucket": "confirmidentityapp-4074e.appspot.com"
+    "project_number": "149899596284",
+    "firebase_url": "https://testapp-660ca.firebaseio.com",
+    "project_id": "testapp-660ca",
+    "storage_bucket": "testapp-660ca.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:736550749681:android:41c7b1d062cabe04",
+        "mobilesdk_app_id": "1:149899596284:android:41c7b1d062cabe04",
         "android_client_info": {
           "package_name": "csiewv.yuwen.app.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "736550749681-83niuv9tas0je2efvd4m4ea7ul73j37t.apps.googleusercontent.com",
+          "client_id": "149899596284-luenisretls89gtqdo8miqpuhsjdcjhv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "csiewv.yuwen.app.app",
+            "certificate_hash": "2098b819be840caa9619ee2f1032471b1d896820"
+          }
+        },
+        {
+          "client_id": "149899596284-4d46h3ghpsb6itnldrer62vddijso720.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA-zwTxeUTH7S45SGKlZGvrkhDKTWwA5H8"
+          "current_key": "AIzaSyCDCM3ggsODefryVLdfY9ou_2WkieHEOVA"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "149899596284-4d46h3ghpsb6itnldrer62vddijso720.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
