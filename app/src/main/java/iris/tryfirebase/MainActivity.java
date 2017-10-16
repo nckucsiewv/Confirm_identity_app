@@ -1,5 +1,6 @@
 package iris.tryfirebase;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -45,13 +46,17 @@ import java.util.Observer;
 public class MainActivity extends AppCompatActivity {
 
     public DatabaseReference myRef;
-    static public int count=0;
+    private Activity thisActivity; // the original activity which has the 'sign in' button
+
+    // must need !!!!!!!!
     private FirebaseUser user;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private static final int RC_SIGN_IN = 1;
     private GoogleApiClient mGoogleApiClient;
-    private static final String TAG = "RandomRandom";
+    private static final String TAG = "GoogleAuth";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,13 +66,19 @@ public class MainActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         myRef = database.getReference();
 
+        thisActivity = MainActivity.this;
+        authInitializer(thisActivity); // must add !!!
+    }
+
+    // should be called in onCreate(), 'thisActivity' parameter is to get the current activity
+    public void authInitializer(final Activity thisActivity){
         mAuth = FirebaseAuth.getInstance();
 
         mAuthListener = new FirebaseAuth.AuthStateListener(){
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth){
                 if(firebaseAuth.getCurrentUser() != null){
-                    startActivity(new Intent(MainActivity.this, AccountActivity.class));
+                    startActivity(new Intent(thisActivity, AccountActivity.class)); // modify here: if get an user, then jump to other activities
                 }
             }
         };
@@ -81,10 +92,11 @@ public class MainActivity extends AppCompatActivity {
                 .enableAutoManage(this, new GoogleApiClient.OnConnectionFailedListener(){
                     @Override
                     public void onConnectionFailed(@NonNull ConnectionResult connectionResult){
-                        Toast.makeText(MainActivity.this, "got an error", Toast.LENGTH_LONG).show();
+                        Toast.makeText(thisActivity, "log in error", Toast.LENGTH_LONG).show();
                     }
                 }).addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+
     }
 
     // called when users clicking the 'SIGN IN' btn
@@ -96,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
@@ -106,9 +118,10 @@ public class MainActivity extends AppCompatActivity {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
+                Toast.makeText(MainActivity.this, "log in success", Toast.LENGTH_LONG).show();
             } else {
-                // Google Sign In failed, update UI appropriately
-                // ...
+                // Google Sign In failed
+                Toast.makeText(MainActivity.this, "log in failed", Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -123,67 +136,17 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithCredential:success");
                             user = mAuth.getCurrentUser();
                         } else {
-                            Log.w(TAG, "signInWithCredential:failure", task.getException());
+                            Log.d(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(MainActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
                         }
-
-                        // ...
                     }
                 });
     }
 
-    // called when users clicking on the 'leader' checkBox
-    // if the leader checkBox is checked, enable the phoneNum editText,
-    // so that user can input leaders' phoneNum
-    public void onCheckBoxClicked(View v){
-        CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox_leader);
-        EditText editText_phone = (EditText) findViewById(R.id.editText_phone);
-        if(checkBox.isChecked()){
-            editText_phone.setEnabled(true);
-        }else{
-            editText_phone.setEnabled(false);
-        }
-    }
-
-    // add a player info to firebase
-    public void addPlayer(String name, String id){
-        if(mAuth.getCurrentUser() != null){
-            Player player = new Player(name,id);
-            myRef.child(mAuth.getCurrentUser().getUid()).child(Integer.toString(count)).setValue(player);
-            ++count;
-        }
-    }
-
-    // add a leader info to firebase
-    public void addLeader(String name, String id, String phone){
-        if(mAuth.getCurrentUser() != null){
-            Player player = new Player(name,id,phone);
-            myRef.child(mAuth.getCurrentUser().getUid()).child(Integer.toString(count)).setValue(player);
-            ++count;
-        }
-    }
-
-    // called when users clicking the 'send' btn
-    public void sendMessage(View view){
-        Intent intent = new Intent(this, DisplayActivity.class);
-
-        EditText editText = (EditText) findViewById(R.id.editText_name);
-        String toSend_name = editText.getText().toString();
-        EditText editText2 = (EditText) findViewById(R.id.editText_num);
-        String toSend_id = editText2.getText().toString();
-
-        CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox_leader);
-        if(checkBox.isChecked()){
-            EditText editText3 = (EditText) findViewById(R.id.editText_phone);
-            String toSend_phone = editText3.getText().toString();
-            addLeader(toSend_name,toSend_id,toSend_phone);
-        }else{
-            addPlayer(toSend_name,toSend_id);
-        }
-
-        startActivity(intent);
-    }
+    // !!!!!!!!!!!!!!
+    // the functions below is not necessary for authentication !!!!!!!!!!!
+    // !!!!!!!!!!!!!!
 
     // called when users clicking the 'check id' btn
     public void sendCheckingID(View view){
@@ -195,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
     // the checking result will be displayed under the 'check' btn
     public void checkID(String id){
         if(mAuth.getCurrentUser() != null){
-            Query query = myRef.child(mAuth.getCurrentUser().getUid()).orderByChild("id").equalTo(id);
+            Query query = myRef.child(mAuth.getCurrentUser().getUid()).child("department").child(id);
             query.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
