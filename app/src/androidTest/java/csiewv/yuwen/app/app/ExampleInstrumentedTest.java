@@ -1,4 +1,4 @@
-package com.example.confirm_identity_app.confirm_identity_app;
+package csiewv.yuwen.app.app;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.confirm_identity_app.confirm_identity_app", appContext.getPackageName());
+        assertEquals("com.app.app.app", appContext.getPackageName());
     }
 }

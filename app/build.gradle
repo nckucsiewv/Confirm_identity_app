@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "26.0.1"
     defaultConfig {
-        applicationId "com.example.confirm_identity_app.confirm_identity_app"
+        applicationId "csiewv.yuwen.app.app"
         minSdkVersion 19
         targetSdkVersion 25
         versionCode 1

@@ -1,4 +1,4 @@
-package com.example.confirm_identity_app.confirm_identity_app;
+package csiewv.yuwen.app.app;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
