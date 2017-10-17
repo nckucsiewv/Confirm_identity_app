@@ -20,23 +20,24 @@ public class MainActivity extends AppCompatActivity implements ApiCallback{
 
     }
 
-    // called when users clicking the 'check id' btn
-    public void sendCheckingID(View view){
+    // called when users clicking the 'register' btn
+    public void onClickedRegisterBtn(View view){
         EditText editText = (EditText) findViewById(R.id.editText_num);
-        db.checkExistanceByStudentId(editText.getText().toString());
+        db.registerByStudentIdAndDate(editText.getText().toString(), "20171104");
     }
 
 
+    // call back functions for registering
     @Override
-    public void studentIdExist(String studentId) {
+    public void studentIdExist(String studentId, String date) {
         TextView textView = (TextView) findViewById(R.id.textView_checkResult);
         textView.setText(studentId+" found!");
-        if (db.registerByStudentIdAndDate("F74004089", "20171104") == Database.DATABASE_SUCCESS) {
+        if (db.register(studentId, date) == Database.DATABASE_SUCCESS) {
             Log.d("myLog", "success");
-            textView.append(" (register successfully");
+            textView.append(" (register successfully)");
         } else {
             Log.d("myLog", "fail");
-            textView.append(" (register unsuccessfully");
+            textView.append(" (register unsuccessfully)");
         }
     }
 

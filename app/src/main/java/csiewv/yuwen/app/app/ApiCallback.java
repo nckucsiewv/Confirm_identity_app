@@ -5,7 +5,7 @@ package csiewv.yuwen.app.app;
  */
 
 public interface ApiCallback {
-    void studentIdExist(String studentId);
+    void studentIdExist(String studentId, String date);
     void studentIdNonExist(String studentId);
     void studentIdCheckError();
     void studentIdCheckProcessing(String studentId);

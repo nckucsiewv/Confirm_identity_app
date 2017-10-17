@@ -35,8 +35,13 @@ public final class Database {
     }
 
 
-    // write registry status to database, return 1 means fail, 0 means success
-    public int registerByStudentIdAndDate(String studentId, String date) {
+    // write registry status to database
+    // check the existence of studentId first, and then register
+    public void registerByStudentIdAndDate(String studentId, String date) {
+        checkExistanceByStudentId(studentId, date);
+    }
+
+    public int register(String studentId, String date){
         // [START write database yuwen]
         try {
             mDatabase = database.getReference("users/" + studentId + "/check/" + date);
@@ -52,8 +57,7 @@ public final class Database {
 
     // check if the id exists in the firebase
     // the checking result will be displayed under the 'check' btn
-    //
-    public void checkExistanceByStudentId(final String studentId) {
+    public void checkExistanceByStudentId(final String studentId, final String date) {
         mDatabase = database.getReference();
         Query query = mDatabase.child("users").orderByKey().equalTo(studentId);
         apiCallback.studentIdCheckProcessing(studentId);
@@ -62,7 +66,7 @@ public final class Database {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     Log.d("myLog", "ID found!");
-                    apiCallback.studentIdExist(studentId);
+                    apiCallback.studentIdExist(studentId, date);
                 } else {
                     Log.d("myLog", "ID not found!");
                     apiCallback.studentIdNonExist(studentId);
