@@ -1,4 +1,4 @@
-package iris.tryfirebase;
+package csiewv.yuwen.app.app;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import csiewv.yuwen.app.app.R;
 
 
 public class MainActivity extends AppCompatActivity {

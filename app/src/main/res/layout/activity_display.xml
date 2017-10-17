@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="iris.tryfirebase.DisplayActivity">
+    tools:context="csiewv.yuwen.app.app.DisplayActivity">
 
     <LinearLayout
         android:layout_width="352dp"
