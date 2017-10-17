@@ -1,14 +1,16 @@
 package csiewv.yuwen.app.app;
 
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ApiCallback{
 
-    private final Database db = new Database();
-    private final int DATABASE_SUCCESS = 0;
-    private final int DATABASE_FAIL = 1;
+    private final Database db = new Database(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,10 +18,43 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         // pre check student id and date
 
-        if (db.registerByStudentIdAndDate("F74004089", "20171104") == DATABASE_SUCCESS) {
+    }
+
+    // called when users clicking the 'check id' btn
+    public void sendCheckingID(View view){
+        EditText editText = (EditText) findViewById(R.id.editText_num);
+        db.checkExistanceByStudentId(editText.getText().toString());
+    }
+
+
+    @Override
+    public void studentIdExist(String studentId) {
+        TextView textView = (TextView) findViewById(R.id.textView_checkResult);
+        textView.setText(studentId+" found!");
+        if (db.registerByStudentIdAndDate("F74004089", "20171104") == Database.DATABASE_SUCCESS) {
             Log.d("myLog", "success");
+            textView.append(" (register successfully");
         } else {
-            Log.d("firebase", "fail");
+            Log.d("myLog", "fail");
+            textView.append(" (register unsuccessfully");
         }
+    }
+
+    @Override
+    public void studentIdNonExist(String studentId) {
+        TextView textView = (TextView) findViewById(R.id.textView_checkResult);
+        textView.setText(studentId+" not found!");
+    }
+
+    @Override
+    public void studentIdCheckError() {
+        TextView textView = (TextView) findViewById(R.id.textView_checkResult);
+        textView.setText("ID checking error");
+    }
+
+    @Override
+    public void studentIdCheckProcessing(String studentId) {
+        TextView textView = (TextView) findViewById(R.id.textView_checkResult);
+        textView.setText(studentId+" checking");
     }
 }
