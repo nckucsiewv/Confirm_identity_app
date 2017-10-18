@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "149899596284-8g43im5khve33ior62v53f3kuienibth.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "csiewv.yuwen.app.app",
+            "certificate_hash": "062fe65d83b1a71a43fe148dcc8617debc82964b"
+          }
+        },
+        {
           "client_id": "149899596284-luenisretls89gtqdo8miqpuhsjdcjhv.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

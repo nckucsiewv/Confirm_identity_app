@@ -12,12 +12,12 @@ public class MainActivity extends AppCompatActivity implements ApiCallback{
 
     private final Database db = new Database(this);
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // pre check student id and date
-
     }
 
     // called when users clicking the 'register' btn
