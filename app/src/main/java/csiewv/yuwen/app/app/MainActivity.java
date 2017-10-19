@@ -1,6 +1,5 @@
 package csiewv.yuwen.app.app;
 
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements ApiCallback{
 
     private final Database db = new Database(this);
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
