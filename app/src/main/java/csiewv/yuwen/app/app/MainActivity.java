@@ -1,4 +1,4 @@
-package com.example.susan.scanner;
+package csiewv.yuwen.app.app;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -159,10 +159,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void ConfirmId(String id, String date)
     {
-        // [START write database example]
+        // [START write database yuwen]
         mDatabase = database.getReference("uid/users/"+id+"/check/"+date);
         mDatabase.setValue("1");    //0:not yet. 1:has already confirmed.
-        // [END write database example]
+        // [END write database yuwen]
     }
 
 }
