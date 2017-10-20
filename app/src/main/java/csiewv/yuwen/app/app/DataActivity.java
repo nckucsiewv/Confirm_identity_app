@@ -1,8 +1,6 @@
-package iris.displaydata;
+package csiewv.yuwen.app.app;
 
 import android.content.Intent;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.LinearLayout;
@@ -44,7 +42,7 @@ public class DataActivity extends AppCompatActivity {
     }
 
     private void getData(final String department, final String date){
-        Query query = myRef.child("uid").child("department").child(department).orderByKey();
+        Query query = myRef.child("department").child(department).orderByKey();
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -55,7 +53,7 @@ public class DataActivity extends AppCompatActivity {
                 }
 
                 for(final String id : competitorList){
-                    Query checkQuery = myRef.child("uid").child("users").child(id).child("check").child(date).orderByValue();
+                    Query checkQuery = myRef.child("users").child(id).child("check").child(date).orderByValue();
                     checkQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
