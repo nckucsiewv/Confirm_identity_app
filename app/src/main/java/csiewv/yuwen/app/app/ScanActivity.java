@@ -20,11 +20,15 @@ public class ScanActivity extends AppCompatActivity implements ApiCallback {
 
     private TextView scanResult;
     private EditText idInput;
+    private String date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
+
+        Bundle bundle = getIntent().getExtras();
+        date = bundle.getString("date");
 
         scanResult = (TextView)findViewById(R.id.textView3);
         scanResult.setText("");
@@ -54,7 +58,7 @@ public class ScanActivity extends AppCompatActivity implements ApiCallback {
                 {
                     if(ids[i].length() == 9)
                     {
-                        db.registerByStudentIdAndDate(ids[i], "20171104");
+                        db.registerByStudentIdAndDate(ids[i], date);
                     }
                 }
             }
