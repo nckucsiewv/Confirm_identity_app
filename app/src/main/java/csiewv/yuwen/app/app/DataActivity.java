@@ -28,6 +28,8 @@ public class DataActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
 
+        chosenDate = "";
+
         Intent intent = this.getIntent();
         chosenDepartment = intent.getStringExtra("department");
         chosenDate = intent.getStringExtra("date");
