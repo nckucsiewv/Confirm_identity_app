@@ -30,6 +30,10 @@ public class ScanActivity extends AppCompatActivity implements ApiCallback {
         Bundle bundle = getIntent().getExtras();
         date = bundle.getString("date");
 
+        // display date
+        TextView title = (TextView)findViewById(R.id.textView);
+        title.setText(date.substring(0,4) + "/" + date.substring(4,6) + "/" + date.substring(6,8));
+
         scanResult = (TextView)findViewById(R.id.textView3);
         scanResult.setText("");
         idInput = (EditText)findViewById(R.id.editText);
