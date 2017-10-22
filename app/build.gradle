@@ -4,8 +4,8 @@ android {
     compileSdkVersion 25
     buildToolsVersion "26.0.1"
     defaultConfig {
-        applicationId "iris.tryfirebase"
-        minSdkVersion 16
+        applicationId "csiewv.yuwen.app.app"
+        minSdkVersion 19
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -28,13 +28,13 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.google.firebase:firebase-core:11.4.0'
-    compile 'com.google.firebase:firebase-database:11.4.0'
-    compile 'com.google.firebase:firebase-auth:11.4.0'
-    compile 'com.google.android.gms:play-services-auth:11.4.0'
-    compile 'com.google.firebase:firebase-crash:11.4.0'
-    compile 'org.apache.httpcomponents:httpcore:4.4.1'
-    compile 'org.apache.httpcomponents:httpclient:4.5'
+    compile 'com.google.firebase:firebase-core:11.4.2'
+    compile 'com.google.firebase:firebase-database:11.4.2'
+    compile 'com.google.firebase:firebase-auth:11.4.2'
+    compile 'com.google.firebase:firebase-crash:11.4.2'
+    compile 'com.google.android.gms:play-services-auth:11.4.2'
+//    compile 'org.apache.httpcomponents:httpcore:4.4.1'
+//    compile 'org.apache.httpcomponents:httpclient:4.5'
     testCompile 'junit:junit:4.12'
 }
 apply plugin: 'com.google.gms.google-services'
