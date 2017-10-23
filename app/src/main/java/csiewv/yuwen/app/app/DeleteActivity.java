@@ -23,10 +23,12 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 
-public class DeleteActivity extends AppCompatActivity {
+public class DeleteActivity extends AppCompatActivity implements ApiCallback{
 
     EditText id;
     DatabaseReference database;
+    private final Database db = new Database(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +46,7 @@ public class DeleteActivity extends AppCompatActivity {
         list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
         // firebase
-        database = FirebaseDatabase.getInstance().getReference("users");
+        database = FirebaseDatabase.getInstance().getReference("uid").child("users");
         final String[] date = {"20171104","20171105","20171111","20171112"};
 
 
@@ -89,7 +91,7 @@ public class DeleteActivity extends AppCompatActivity {
                         SparseBooleanArray pos = list.getCheckedItemPositions();
                         for(int i = 0; i< 4 ;i++){
                             if ( pos.get(i) ){
-                                database.child(s_id).child("check").child(date[i]).setValue("0");
+                                db.delete(s_id,date[i]);
                                 list.setItemChecked(i,false);
                             }
                         }
@@ -100,4 +102,8 @@ public class DeleteActivity extends AppCompatActivity {
         });
 
     }
+    public void studentIdExist(String studentId, String date){}
+    public void studentIdNonExist(String studentId){}
+    public void studentIdCheckError(){}
+    public void studentIdCheckProcessing(String studentId){}
 }
