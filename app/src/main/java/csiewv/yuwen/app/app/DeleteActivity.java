@@ -46,7 +46,7 @@ public class DeleteActivity extends AppCompatActivity implements ApiCallback{
         list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 
         // firebase
-        database = FirebaseDatabase.getInstance().getReference("uid").child("users");
+        database = FirebaseDatabase.getInstance().getReference("users");
         final String[] date = {"20171104","20171105","20171111","20171112"};
 
 
@@ -59,9 +59,12 @@ public class DeleteActivity extends AppCompatActivity implements ApiCallback{
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         adapter.clear();
+                        TextView tv = (TextView) findViewById(R.id.tv_name);
+                        tv.setText("");
                         bt_ok.setVisibility(View.INVISIBLE);
                         for (DataSnapshot ds :dataSnapshot.getChildren()) {
                             if (id.getText().toString().equals(ds.getKey().toString())){
+                                tv.setText(ds.child("name").getValue().toString());
                                 for(DataSnapshot d_c : ds.child("check").getChildren()) {
                                     adapter.add(d_c.getKey().toString() + " : " + d_c.getValue().toString());
                                 }

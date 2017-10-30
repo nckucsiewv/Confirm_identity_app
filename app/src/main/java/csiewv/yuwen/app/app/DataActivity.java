@@ -3,6 +3,7 @@ package csiewv.yuwen.app.app;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -39,7 +40,9 @@ public class DataActivity extends AppCompatActivity {
 
         myRef = FirebaseDatabase.getInstance().getReference();
 
+        Log.d("myLog", chosenDate);
         getData(chosenDepartment, chosenDate);
+
 
     }
 
@@ -55,7 +58,7 @@ public class DataActivity extends AppCompatActivity {
                 }
 
                 for(final String id : competitorList){
-                    Query checkQuery = myRef.child("users").child(id).child("check").child(date).orderByValue();
+                    Query checkQuery = myRef.child("users").child(id).orderByValue();
                     checkQuery.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
@@ -63,8 +66,9 @@ public class DataActivity extends AppCompatActivity {
                                 LinearLayout layout = (LinearLayout) findViewById(R.id.layoutInScrollView);
                                 TextView textView = new TextView(DataActivity.this);
                                 String getID = id;
-                                String getCheck = dataSnapshot.getValue().toString();
-                                textView.setText(getID+":"+getCheck);
+                                String getName = dataSnapshot.child("name").getValue().toString();
+                                String getCheck = dataSnapshot.child("check").child(date).getValue().toString();
+                                textView.setText(getID+" "+getName+" : "+getCheck);
                                 textView.setTextSize(20);
                                 textView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
                                 layout.addView(textView);

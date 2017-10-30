@@ -65,10 +65,8 @@ public class ShowActivity extends AppCompatActivity {
         String getDepartmentEng[] = chosenDepartment.split(" ");
         chosenDepartment = getDepartmentEng[0];
 
-        chosenDate = CURRENT_MONTH+chosenDate;
-
         intent.putExtra("department",chosenDepartment);
-        intent.putExtra("date",chosenDate);
+        intent.putExtra("date",CURRENT_MONTH+chosenDate);
 
         startActivity(intent);
     }

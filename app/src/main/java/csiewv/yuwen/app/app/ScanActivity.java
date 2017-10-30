@@ -165,11 +165,13 @@ public class ScanActivity extends AppCompatActivity implements ApiCallback {
     @Override
     public void studentIdNonExist(String studentId) {
         String[] ids = scanResult.getText().toString().split("\n");
+
         for(int i=0; i<ids.length; i++)
         {
-            if (ids[i].equals(studentId))
+            Log.d("myLog", ids[i]+" "+studentId );
+            if (ids[i].substring(0, 9).equals(studentId))
             {
-                ids[i] += "...not found!";
+                ids[i] = ids[i].substring(0, 9)+"...not found!";
                 UpdateScanResult(ids);
             }
         }
@@ -196,7 +198,7 @@ public class ScanActivity extends AppCompatActivity implements ApiCallback {
     // check ID is Valid or not
     private boolean isValidId(String id)
     {
-        if(id.charAt(0) >= 'A' && id.charAt(0) <= 'Z')
+        if(id.charAt(0) >= 'A' && id.charAt(0) <= 'Z' && id.length() == 9)
         {
             for(int i=2; i<9; i++)
                 if(id.charAt(i) < '0' || id.charAt(i) > '9')

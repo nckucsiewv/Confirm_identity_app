@@ -44,7 +44,7 @@ public final class Database {
     public int register(String studentId, String date){
         // [START write database yuwen]
         try {
-            mDatabase = database.getReference("uid/users/" + studentId + "/check/" + date);
+            mDatabase = database.getReference("users/" + studentId + "/check/" + date);
             mDatabase.setValue("1");    //0:not yet. 1:has already confirmed.
             // [END write database yuwen]
         } catch (Exception e) {
@@ -82,7 +82,7 @@ public final class Database {
     }
 
     public void delete(String studentID,String Date){
-        mDatabase = database.getReference("uid/users/" + studentID + "/check/" + Date);
+        mDatabase = database.getReference("users/" + studentID + "/check/" + Date);
         mDatabase.setValue("0");
     }
 }
